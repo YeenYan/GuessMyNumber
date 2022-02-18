@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@600;800&family=Patua+One&display=swap');
+
+/*--------------*/
+// Font Family
+/*--------------*/
+$ff-bungee: 'Bungee', cursive;
+$ff-patua: 'Patua One', cursive;
+$ff-montserrat: 'Montserrat', sans-serif;
+
+/*--------------*/
+// Font sizes
+/*--------------*/
+
+$fs-bungee: (
+    'desktop': 5.625rem,
+    'tablet': 4.375rem,
+    'mobile': 1.875rem
+);
+
+$fs: (
+    '100': 6.25rem,
+    '90': 5.63rem,
+    '70': 4.38rem,
+    '60': 3.75rem,
+    '57': 3.583125rem,
+    '50': 3.125rem,
+    '45': 2.8125rem,
+    '35': 2.1875rem,
+    '32': 2rem,
+    '30': 1.88rem,
+    '28': 1.75rem,
+    '25': 1.5625rem,
+    '22': 1.375rem,
+    '18': 1.125rem,
+    '16': 1rem,
+    '11': 0.6875rem
+);
+
+/*--------------*/
+// Font weight
+/*--------------*/
+
+$fw: (
+    '600': 600,
+    '800': 800,
+    'normal': normal
+);
+
+.ff-bungee {font-family: $ff-bungee;}
+.ff-patua {font-family: $ff-patua;}
+.ff-montserrat {font-family: $ff-montserrat;}
+
+.fs-desktop-bungee {font-size: map-get($fs-bungee, desktop);}
+.fs-tablet-bungee {font-size: map-get($fs-bungee, tablet);}
+.fs-mobile-bungee {font-size: map-get($fs-bungee, mobile);}
+
+.fs-100 {font-size: map-get($fs, '100');}
+.fs-90 {font-size: map-get($fs, '90');}
+.fs-70 {font-size: map-get($fs, '70');}
+.fs-60 {font-size: map-get($fs, '60');}
+.fs-57 {font-size: map-get($fs, '57');}
+.fs-50 {font-size: map-get($fs, '50');}
+.fs-45 {font-size: map-get($fs, '45');}
+.fs-35 {font-size: map-get($fs, '35');}
+.fs-32 {font-size: map-get($fs, '32');}
+.fs-30 {font-size: map-get($fs, '30');}
+.fs-28 {font-size: map-get($fs, '28');}
+.fs-25 {font-size: map-get($fs, '25');}
+.fs-22 {font-size: map-get($fs, '22');}
+.fs-18 {font-size: map-get($fs, '18');}
+.fs-16 {font-size: map-get($fs, '16');}
+.fs-11 {font-size: map-get($fs, '11');}
+
+.fw-800 {font-weight: map-get($fw, '800');}
+.fw-600 {font-weight: map-get($fw, '600');}
+.fw-normal{font-weight: map-get($fw, 'normal');}
+
+.lh-80 {
+    line-height: 80px;
+}
+
+.lh-18 {
+    line-height: 18px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+// ==============================================================
+// ==============================================================
+
+h1, h2, h3, h4, h5, h6 {line-height: 80px;}
+
+.header-title {
+    font-size: map-get($fs-bungee, 'mobile');
+    font-size: map-get($fs, '30');
+    font-weight: map-get($fw, normal);
+}
+
+
+@media (min-width: 35em) {
+    .header-title {
+        font-size: map-get($fs, '70');
+    }
+    .lives-num {
+        font-size: map-get($fs, '50');
+    }
+    .lives-text {
+        font-size: map-get($fs, '18');
+    }
+    .highscore-text {
+        font-size: map-get($fs, '16');
+    }
+    .highscore-num {
+        font-size: map-get($fs, '35');
+    }
+    .level-text {
+        font-size: map-get($fs, '100');
+    }
+    .level-info,
+    .current-score {
+        font-size: map-get($fs, '25');
+    }
+    .current-score span{
+        font-size: map-get($fs, '28');
+    }
+    .secret-number {
+        font-size: map-get($fs, '100');
+    }
+    .message-text {
+        font-size: map-get($fs, '45');
+    }
+    .primary-btn,
+    .secondary-btn {
+        font-size: map-get($fs, '35');
+    }
+}
+
+@media (min-width: 80em) {
+    .header-title {
+        font-size: map-get($fs, 90);
+    }
+}
+
+@supports (font-size: clamp(1.875rem, 7vw, 5.625rem)) {
+    .header-title {
+        font-size: clamp(1.875rem, 8vw, 5.625rem);   
+    }
+    .lives-num {
+        font-size: clamp(2rem, 10vw,  3.125rem);
+    }
+    .lives-text {
+        font-size: clamp(0.6875rem, 3vw, 1.125rem);
+    }
+    .highscore-text {
+        font-size: clamp(0.6875rem, 3vw, 1rem);
+    }
+    .highscore-num {
+        font-size: clamp(1.375rem, 5vw, 2.1875rem);
+    }
+    .level-text {
+        font-size: clamp(3.75rem, 15vw, 6.25rem);
+    }
+    .level-info,
+    .current-score {
+        font-size: clamp(1rem, 4vw, 1.5625rem);
+    }
+    .current-score span{
+        font-size: clamp(1.2rem, 6vw, 1.75rem);
+    }
+    .secret-number {
+        font-size: clamp(4.38rem, 8vw ,6.25rem)
+    }
+    .message-text {
+        font-size: clamp(1.75rem, 7vw, 2.8125rem);
+    }
+    .primary-btn,
+    .secondary-btn {
+        font-size: clamp(1.5625rem, 7vw,  2.1875rem);
+    }
+}

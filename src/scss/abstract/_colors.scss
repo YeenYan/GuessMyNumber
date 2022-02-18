@@ -1,0 +1,68 @@
+
+$clr-primary: linear-gradient(90deg, #00ABED 0%, #005EAE 100%);
+$clr-success: linear-gradient(90deg, #76DA9E 0%, #55AA83 100%);
+$clr-failed: linear-gradient(90deg, #A01579 0%, #6B0143 100%);
+$clr-secondary: rgb(234, 184, 40);
+$clr-dark: rgb(7, 38, 61);
+$clr-white: rgb(255, 255, 255);
+
+.clr-white {color: $clr-white;}
+
+.header {
+    background-color: $clr-dark;
+}
+
+h1, h2, h3, h4, h5, h6, p {color: $clr-white;}
+
+body {
+    background: $clr-dark;
+}
+
+.main-wrapper {
+    background: rgba(7, 38, 61, 0.5);
+}
+
+.highscore-num {
+    background-color: $clr-secondary;
+}
+
+.level-text,
+.level-info span {
+    color: $clr-secondary;
+}
+
+.secret-number--container {
+    background-color: $clr-white;
+    border: 5px solid rgb(0, 171, 237);
+}
+
+.secret-number {
+    color: $clr-dark;
+}
+
+.guess-number {
+    color: $clr-dark;
+}
+
+.current-score span{
+    color: $clr-secondary;
+}
+
+.primary-btn {
+    background: $clr-primary;
+    color: $clr-white;
+}
+
+.secondary-btn {
+    color: $clr-white;
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}

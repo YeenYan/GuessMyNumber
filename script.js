@@ -83,10 +83,12 @@ const domReset = () => {
 
 // New Game function when you lose & you want to try again
 const tryAgainReset = () => {
+    secretNum = Math.trunc(Math.random() * `${levelNum}`) + 1;
     userLives = 20;
     livesNumEl.textContent = userLives;
     primaryBtnEl.style.background = btnColor('primary');
     domReset();
+    init();
 }
 
 init();
@@ -116,14 +118,9 @@ const rightGuess = () => {
     
     if (newGame) {
         highScoreFunction();
-        console.log('first')
     }else if (score > highScore) {
         highScoreFunction();
-        console.log('new score');
-    } else {
-        console.log('remain score');
     }
-    console.log(newGame);
 }
 
 // Functionality if Guess is Wrong
@@ -137,7 +134,6 @@ const wrongGuess = () => {
 // Next level functionality
 const nextLevel = () => {
     secretNum = Math.trunc(Math.random() * `${levelNum}`) + 1;
-    console.log(secretNum);
     gameLevel += 1;
     levelNum += 10;
 
@@ -184,20 +180,16 @@ const inputValidation = () => {
     let newData = data.replace(/\s/g, "");
     
     if (data == "") {
-        console.log("No Input");
         valid = false;
     } else {
         for (let i = 0; i < data.length; i++) {
             if (iChars.indexOf(data.charAt(i)) != -1) {
                 valid = false;
-                console.log('Loop1: ', valid);
                 break;
             } else if (!iChars.indexOf(data.charAt(i)) != -1 && (newData[i].match(letterChar))) {
                 valid = false;
-                console.log('Loop2: ', valid);
             } else {
                 valid = true;
-                console.log('Loop3: ', valid);
             }
         }
     }
@@ -211,13 +203,11 @@ primaryBtnEl.addEventListener('click', () => {
     guessNum = Number(document.querySelector('.guess-number').value);
     primaryBtnEl.style.background = btnColor('primary');
 
-    console.log(secretNum);
     inputValidation();
 
     if (!valid) {
         errorBorder.classList.add('border-red');
         clearInputField("");
-        console.log('Final output', valid);
     } else {
         errorBorder.classList.remove('border-red');
         if (levelUp) {
@@ -231,13 +221,10 @@ primaryBtnEl.addEventListener('click', () => {
                     rightGuess();
                     levelUp = true;
                     primaryBtnEl.textContent = 'Next';
-                    console.log(highScore, currentScore, minusPoints);
                 } else {
                     if (userLives > 1) {
                         displayMessage(guessNum > secretNum ? 'Your guess is too high' : 'Your guess is too low');
                         wrongGuess();
-                        console.log('not equal');
-                        console.log(highScore, currentScore, minusPoints);
                         userLives === 1 ? livesTextEl.textContent = 'Life left' : livesTextEl.textContent = 'Lives left';
                     } else if (userLives === 0){
                         restoreHearts();
@@ -284,5 +271,4 @@ secondaryBtnEl.addEventListener('click', () => {
     newGame = false;
     secretNum = Math.trunc(Math.random() * `${levelNum}`) + 1;
     primaryBtnEl.style.background = btnColor('primary');
-    console.log(secretNum);
 });

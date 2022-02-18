@@ -1,0 +1,347 @@
+@use '../abstract/abstract_index' as a;
+
+
+/*======================*/
+// General Utilities
+/*======================*/
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.flex-row {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// ==============================================================
+
+body {
+    position: relative;
+    // height: 100vh;
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-wrapper {
+    padding: .3rem 0;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.header-image {
+    display: none;
+}
+
+.content-wrapper {
+    justify-content: space-between;
+}
+
+.lives-num {
+    line-height: 30px;
+}
+
+.heart-wrapper {
+    margin-left: .8rem;
+}
+
+.hearts-container > * {
+    width: 1.222rem;
+}
+
+.highscore-num {
+    border-radius: 5px;
+    padding: .3rem 0;
+}
+
+// ==============================================================
+
+.secret-number--container {
+    position: relative;
+    width: 8.813rem;
+    height: 8.813rem;
+    margin: 1rem auto 1rem auto;
+    border-radius: 50%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.secret-number_avatar {
+    position: absolute;
+    width: 100%;
+}
+
+main > div:nth-child(2) {
+    width: 80%;
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+.message-text {
+    margin-bottom: 1rem;
+}
+
+.guess-number {
+    width: 80%;
+    margin: 0 auto;
+    padding: .2em 0;
+    font-size: 2rem;
+}
+
+.guess-number::placeholder{
+    font-size: 1.5rem;
+    transform: translateY(-.2rem);
+}
+
+.current-score {
+    margin: 1rem auto;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: .2rem 0;
+    margin: .1em 0;
+}
+
+.btn-wrapper {
+    width: 80%;
+    margin: .3em 0;
+}
+
+.secondary-btn {
+    background: none;
+    border: 1px solid a.$clr-white;
+}
+
+// ==============================================================
+.bg-images > *{
+    z-index: -1000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    outline: 4px solid rgb(226, 86, 43);
+}
+
+.bg-images {
+    &--mobile {
+        visibility: visible;
+    }
+    &--tablet {
+        visibility: hidden;
+    }
+    &--desktop {
+        visibility: hidden;
+    }
+}
+
+
+@media (min-width: 35em) {
+
+    .header-title {
+        padding: .5rem 0;
+    }
+
+    .main-wrapper {
+        padding: .7rem 0;
+    }
+
+    .lives-num {
+        line-height: 50px;
+    }
+
+    .highscore-num {
+        margin-top: .3rem;
+    }
+
+    .heart-wrapper {
+        display: flex;
+        height: 100%;
+    }
+
+    .hearts-container > * {
+        width: 20%;
+        max-width: 1.925rem;
+    }
+
+    .level-info {
+        margin-top: 1rem;
+    }
+
+    .secret-number--container {
+        width: 14.813rem;
+        height: 14.813rem;
+    }
+
+    main > div:nth-child(2) {
+        margin-top: 3.5rem;
+    }
+
+    .guess-number {
+        padding: .4em 0;
+    }
+
+    .btn {
+        padding: .8rem 0;
+    }
+
+    .bg-images {
+        &--mobile {
+            visibility: hidden;
+        }
+        &--tablet {
+            visibility: visible;
+        }
+        &--desktop {
+            visibility: hidden;
+        }
+    }
+}
+
+@media (min-width: 80em) {
+    
+    body > div{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-title > span {
+        display: block;
+    }
+
+    .header-image {
+        display: block;
+        width: 472px;
+    }
+
+    .main-wrapper {
+        padding: 1rem 0;
+    }
+
+    .heart-wrapper {
+        margin: 0;
+    }
+
+    .secret-number {
+        visibility: visible;
+    }
+
+    .secret-number_avatar {
+        visibility: hidden;
+    }
+
+    .bg-images {
+        &--mobile {
+            visibility: hidden;
+        }
+        &--tablet {
+            visibility: hidden;
+        }
+        &--desktop {
+            visibility: visible;
+        }
+    }
+}
+
+@supports (width: clamp(1.222rem, 3vw, 1.925rem)) {
+    .hearts-container > * {
+        width: clamp(1.222rem, 4vw, 1.925rem);
+    }
+
+    .secret-number--container {
+        width:  clamp(8.813rem, 30vw, 14.813rem);
+        height:  clamp(8.813rem, 30vw, 14.813rem);
+    }
+}
+
+.border-red {
+    animation-name: redBorderScale;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes redBorderScale {
+    from {
+        outline: 1px solid rgba(255, 44, 44, .5);
+    }
+    to {
+        outline: 3px solid rgba(255, 44, 44, .8);
+    }
+}
+
+.pulsate-true {
+    -webkit-animation-name: pulsate;
+    animation-name: pulsate;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); }
+    50% {
+      -webkit-transform: scale3d(0.8, 0.8, 0.8);
+      transform: scale3d(0.8, 0.8, 0.8); }
+    100% {
+      -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+      animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); } }
+
+.pulsate-false {
+    -webkit-animation-name: pulsate;
+    animation-name: pulsate;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); }
+    50% {
+      -webkit-transform: scale3d(0.8, 0.8, 0.8);
+      transform: scale3d(0.8, 0.8, 0.8); }
+    100% {
+      -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+      animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1); } }

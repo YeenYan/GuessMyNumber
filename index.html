@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number!</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/logoIcon.png">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header flex-column">
+            <h1 class="header-title ff-bungee uppercase clr-white lh-80 text-center">Guess <span>my Number!</span></h1>
+            <img src="./images/avatarBlueBG.svg" alt="Person Avatar" class="header-image">
+        </header>
+        <main class="main">
+            <div class="main-wrapper">
+                <div class="content-wrapper wrapper flex-row">
+                    <div class="flex-row">
+                        <div class="lives-wrapper text-center">
+                            <p class="lives-num ff-montserrat fw-800 fs-32">20</p>
+                            <p class="lives-text uppercase ff-montserrat fs-11 fw-600 lh-18">Lives Left</p>
+                        </div>
+                        <div class="heart-wrapper grid">
+                            <div class="hearts-container flex-row">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-0 heart-1">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-2 heart-3">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-4 heart-5">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-6 heart-7">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-8 heart-9">
+                            </div>
+                            <div class="hearts-container flex-row">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-10 heart-11">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-12 heart-13">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-14 heart-15">
+                                <img src="./images/heartWhole.svg" alt="Hearts" class="hearts heart-16 heart-17">
+                                <img src="./images/heartWhole.svg" alt="Hearts"  class="hearts heart-18 heart-19">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="highscore-wrapper text-center">
+                        <p class="highscore-text uppercase ff-montserrat fs-11 lh-18">Highest Record</p>
+                        <p class="highscore-num ff-patua fs-22">0</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-column">
+                    <h2 class="level-text ff-patua fs-60 fw-normal">lvl 1</h2>
+                    <p class="level-info ff-montserrat fw-600 fs-16">A number between <span>1</span> and <span class="level-info--num">10</span></p>
+                </div>
+                <div class="secret-number--container flex-column">
+                    <p class="secret-number ff-patua fs-70 hidden">??</p>
+                    <img src="./images/avatarWhiteBG.svg" alt="Person Avatar" class="secret-number_avatar">
+                </div>
+                <p class="current-score text-center ff-montserrat">Score: <span class="current-score-num fs-18">0</span></p>
+                <div class="flex-column">
+                    <p class="message-text ff-patua fs-28">Start Guessing...</p>
+                    <input type="text" class="guess-number fs-45 ff-patua text-center" placeholder="Enter your Guess" required>
+                    <div class="btn-wrapper flex-column">
+                        <button class="btn primary-btn ff-patua fs-25 uppercase">Check</button>
+                        <button class="btn secondary-btn ff-patua fs-25 uppercase">Restart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="bg-images">
+        <img src="./images/mobileBG.webp" alt="background image" class="bg-images--mobile">
+        <img src="./images/tabletBG.webp" alt="background image" class="bg-images--tablet">
+        <img src="./images/desktopBG.webp" alt="background image" class="bg-images--desktop">
+    </div>
+</body>
+</html>
